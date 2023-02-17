@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import Layout from './Components/Layout/Layout';
+import {BrowserRouter ,Router,Route, Routes} from 'react-router-dom';
+import AddUser from './Components/Apps/admin_app/AddUser';
+import Show from './Components/Apps/admin_app/ShowUser';
+import GST from './Components/GST/Gst';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+      <Layout />
+      <Routes>
+      <Route path="/add" element={<AddUser />} />
+      <Route path="/show" element={<Show />}/>
+      <Route path="/gst" element={<GST />}/>
+        
+      </Routes>
+      </BrowserRouter>
+      
     </div>
-  );
+  )
 }
 
 export default App;
